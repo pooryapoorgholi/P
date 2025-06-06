@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منوی رسمی دونریتو | Donerito</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --primary: #d32f2f;
+            --secondary: #f9a825;
+            --light: #f8f4e9;
+            --dark: #2c2926;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23f9a825" stroke-width="1" stroke-opacity="0.1"/></svg>');
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #b71c1c);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .slogan {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .menu-section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            margin-right: 15px;
+        }
+        
+        .category {
+            margin-bottom: 35px;
+        }
+        
+        .category-title {
+            background: var(--dark);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-title i {
+            margin-left: 10px;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .item-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--dark);
+            flex: 1;
+        }
+        
+        .item-price {
+            background: var(--secondary);
+            color: white;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            min-width: 90px;
+            text-align: center;
+        }
+        
+        .item-desc {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+        }
+        
+        .item-ingredients {
+            font-size: 0.95rem;
+            color: #888;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+        }
+        
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .contact a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                margin: 15px auto;
+                border-radius: 10px;
+            }
+            
+            header {
+                padding: 25px 15px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .menu-section {
+                padding: 20px 15px;
+            }
+        }
+        
+        .lang-en {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: ltr;
+            display: block;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h1>منوی دونریتو</h1>
+            <p class="slogan">لذیذترین طعم‌ها با بهترین مواد اولیه</p>
+        </header>
+
+        <!-- دونرها -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-bread-slice"></i>
+                دونرها
+            </div>
+            
+            <div class="category">
+                <div class="category-title">
+                    <i class="fas fa-star"></i>
+                    دونرهای ویژه
+                </div>
+                <div class="items-grid">
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-name">دونر کباب</div>
+                            <div class="item-price">159,000</div>
+                        </div>
+                        <div class="item-desc">
+                            دونر کلاسیک با ترکیبی از گوشت مرغ و سس‌های ویژه
+                            <span class="lang-en">DONER KEBAB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-name">دونر هاتای</div>
+                            <div class="item-price">210,000</div>
+                        </div>
+                        <div class="item-desc">
+                            نان تورتیلا، ۱۵۰ گرم مرغ، خیارشور، سیب زمینی، سس هاتای، سس سپر
+                            <span class="lang-en">HATAY DONER</span>
+                        </div>
+                    </div>
+                    
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-name">دونر کلاسیک</div>
+                            <div class="item-price">220,000</div>
+                        </div>
+                        <div class="item-desc">
+                            نان تورتیلا، ۱۵۰ گرم مرغ، خیارشور، کاهو، گوجه، سس سپر
+                            <span class="lang-en">CLASSIC DONER</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- هات داگ -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-hotdog"></i>
+                هات داگ
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">هات داگ کلاسیک</div>
+                        <div class="item-price">190,000</div>
+                    </div>
+                    <div class="item-desc">
+                        خیارشور، پنیر چدار، کرپسیون
+                        <span class="lang-en">HOT DOG CLASSIC</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">هات داگ بیکن</div>
+                        <div class="item-price">210,000</div>
+                    </div>
+                    <div class="item-desc">
+                        دیپ گودا، بیکن، پیاز کاراملیزه، کرپسیون، هالوپینو
+                        <span class="lang-en">HOT DOG BACON</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">هات داگ ماشروم</div>
+                        <div class="item-price">215,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سس ماشروم، کرپسیون، هالوپینو
+                        <span class="lang-en">HOT DOG MUSHROOM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- برگرها -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-hamburger"></i>
+                برگرهای دست‌ساز
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">برگر کلاسیک</div>
+                        <div class="item-price">280,000</div>
+                    </div>
+                    <div class="item-desc">
+                        280 گرم گوشت دستساز، کاهو، گوجه، خیارشور، پیاز کاراملیزه، پنیر چدار
+                        <span class="lang-en">BURGER CLASSIC</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">ماشروم برگر</div>
+                        <div class="item-price">315,000</div>
+                    </div>
+                    <div class="item-desc">
+                        315 گرم گوشت دستساز، سس ماشروم، پنیر امتال، هالوپینو، کریسی
+                        <span class="lang-en">MUSHROOM BURGER</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">بیکن برگر</div>
+                        <div class="item-price">325,000</div>
+                    </div>
+                    <div class="item-desc">
+                        325 گرم گوشت دستساز، بیکن، پیاز کاراملیزه، هالوپینو، پنیر چدار، کریسی
+                        <span class="lang-en">BACON BURGER</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">اسپشیال برگر</div>
+                        <div class="item-price">355,000</div>
+                    </div>
+                    <div class="item-desc">
+                        355 گرم گوشت دستساز، استیک، پنیر چدار، نان کره و سیر، کاهو، گوجه، هالوپینو
+                        <span class="lang-en">SPECIAL BURGER</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ساندویچ گرم -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-fire"></i>
+                ساندویچ گرم
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">ساندویچ بیکن</div>
+                        <div class="item-price">230,000</div>
+                    </div>
+                    <div class="item-desc">
+                        بیکن 98%، خیارشور، پنیر امتال، هالوپینو، کریسی
+                        <span class="lang-en">BACON SANDWICH</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">رست بیف</div>
+                        <div class="item-price">245,000</div>
+                    </div>
+                    <div class="item-desc">
+                        رست بیف 150 گرم، سس ماشروم، پنیر امتال، هالوپینو، کریسی، سس مخصوص
+                        <span class="lang-en">ROAST BEEF</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">استیک ساندویچ</div>
+                        <div class="item-price">260,000</div>
+                    </div>
+                    <div class="item-desc">
+                        استیک 150 گرم، سس رومسکو، پنیر کودا، هالوپینو، کریسی
+                        <span class="lang-en">STEAK SANDWICH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- تست‌ها -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-cheese"></i>
+                تست‌های ویژه
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">تست پپرونی</div>
+                        <div class="item-price">190,000</div>
+                    </div>
+                    <div class="item-desc">
+                        پپرونی، پنیر موزارلا، هالوپینو
+                        <span class="lang-en">TOAST PEPPERONI</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">تست سالامی</div>
+                        <div class="item-price">200,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سالامی، پنیر موزارلا، هالوپینو
+                        <span class="lang-en">TOAST SALAMI</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">تست کراکوف</div>
+                        <div class="item-price">210,000</div>
+                    </div>
+                    <div class="item-desc">
+                        کراکوف، پنیر، هالوپینو
+                        <span class="lang-en">TOAST KRAKOW</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- مافین -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-muffin"></i>
+                مافین‌ها
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">مافین راکر</div>
+                        <div class="item-price">200,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان انگلیسی مافین، برگز دستساز، پنیر چدار، سس مخصوص
+                        <span class="lang-en"></span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">مافین استیک</div>
+                        <div class="item-price">190,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان انگلیسی مافین، استیک، پنیر چدار، سس مخصوص
+                        <span class="lang-en"></span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">مافین روست بیف</div>
+                        <div class="item-price">190,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان انگلیسی مافین، روست بیف، پنیر چدار، سس مخصوص
+                        <span class="lang-en"></span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">مافین با بیکن</div>
+                        <div class="item-price">175,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان انگلیسی مافین، بیکن گوشت 98%، پنیر چدار، سس مخصوص
+                        <span class="lang-en">MUFFIN WITH BACON</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ساندویچ سرد -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-snowflake"></i>
+                ساندویچ سرد
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">بوقلمون دودی</div>
+                        <div class="item-price">250,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان فوکاجا، کاهو، گوجه، سس پستو، زیتون، گردو، پارمسان، کرپسی، سس مخصوص
+                        <span class="lang-en">SMOKED TURKEY</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">چیکن مکزیکی</div>
+                        <div class="item-price">255,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان فوکاجا، سس ردپیر، پستو، کاهو، زیتون، گوجه، پارمسان، گردو، کرپسی، سس مخصوص
+                        <span class="lang-en">MEXICAN CHICKEN</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">گوشت و مرغ</div>
+                        <div class="item-price">300,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان فوکاجا، کاهو، گوجه، سس پستو، زیتون، گردو، پارمسان، کرپسی، سس مخصوص
+                        <span class="lang-en">MEAT AND CHICKEN</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">بیکن 98%</div>
+                        <div class="item-price">310,000</div>
+                    </div>
+                    <div class="item-desc">
+                        نان فوکاجا، سس ردپیر، پستو، کاهو، زیتون، گوجه، پارمسان، گردو، کرپسی، سس مخصوص
+                        <span class="lang-en">BACON</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیمرت</div>
+                        <div class="item-price">200,000</div>
+                    </div>
+                    <div class="item-desc">
+                        زامیون مرغ، نان سیمرت، پنیر خامه‌ای، گوجه، زیتون
+                        <span class="lang-en">SIMIT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- پاستا -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-pasta"></i>
+                پاستاها
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">پاستا الفردو مرغ</div>
+                        <div class="item-price">240,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سس الفردو، فیله مرغ، پارمسان، گوجه چری
+                        <span class="lang-en">CHICKEN ALFREDO PASTA</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">پاستا الفردو استیک</div>
+                        <div class="item-price">270,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سس الفردو، استیک، پارمسان، گوجه چری
+                        <span class="lang-en">STEAK ALFREDO PASTA</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">پاستا سس پستو</div>
+                        <div class="item-price">230,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سس پستو، سس خامه، فیله مرغ، گوجه، پارمسان
+                        <span class="lang-en">PESTO PASTA</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">پاستا آرابیاتا</div>
+                        <div class="item-price">250,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سس آرابیاتا، استیک، پارمسان
+                        <span class="lang-en">ARABIATTA PASTA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- سیب زمینی -->
+        <div class="menu-section">
+            <div class="section-title">
+                <i class="fas fa-potato"></i>
+                سیب زمینی‌های ویژه
+            </div>
+            
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیب زمینی با بیکن</div>
+                        <div class="item-price">225,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سیب زمینی بیکن و سس ماشروم
+                        <span class="lang-en">POTATOES WITH BACON</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیب زمینی با سالامی</div>
+                        <div class="item-price">200,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سیب زمینی سالامی تئوری با گودا
+                        <span class="lang-en">POTATOES WITH SALAMI</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیب زمینی با پپرونی</div>
+                        <div class="item-price">190,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سیب زمینی پپرونی
+                        <span class="lang-en">POTATOES WITH PEPPERONI</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیب زمینی با فیله</div>
+                        <div class="item-price">190,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سیب زمینی فیله سوخاری
+                        <span class="lang-en">POTATOES WITH FILLED</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیب زمینی با استیک</div>
+                        <div class="item-price">240,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سیب زمینی استیک
+                        <span class="lang-en">POTATOES WITH STEAK</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیب زمینی کوچک</div>
+                        <div class="item-price">100,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سرو کوچک سیب زمینی
+                        <span class="lang-en">SMALL POTATOES</span>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">سیب زمینی بزرگ</div>
+                        <div class="item-price">150,000</div>
+                    </div>
+                    <div class="item-desc">
+                        سرو بزرگ سیب زمینی
+                        <span class="lang-en">BIG POTATOES</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>ساعات کاری: هر روز از ۱۲ ظهر تا ۱۲ شب</p>
+            <div class="contact">
+                <a href="tel:+982191078002">
+                    <i class="fas fa-phone"></i>
+                    ۰۲۱-۹۱۰۷۸۰۰۲
+                </a>
+                <a href="https://instagram.com/donerito.ir" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    @donerito.ir
+                </a>
+                <a href="https://donerito.ir" target="_blank">
+                    <i class="fas fa-globe"></i>
+                    donerito.ir
+                </a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                Donerito Digital Menu © 2025 - All Rights Reserved
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
