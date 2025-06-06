@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>منوی رسمی دونریتو</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f9f5eb;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #d32f2f;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .logo {
+            width: 150px;
+            margin: 0 auto 20px;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .category-title {
+            background: #d32f2f;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1.4rem;
+        }
+        .item {
+            padding: 15px;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .item-name {
+            font-weight: bold;
+        }
+        .item-price {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 15px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>منوی دیجیتال دونریتو</h1>
+            <p>تازه‌ترین و خوشمزه‌ترین غذاها</p>
+        </header>
+        
+        <div class="category">
+            <div class="category-title">پیش‌غذاها</div>
+            <div class="item">
+                <span class="item-name">نان سیر دونریتو</span>
+                <span class="item-price">49,000 تومان</span>
+            </div>
+            <div class="item">
+                <span class="item-name">سیب‌زمینی مخصوص</span>
+                <span class="item-price">59,000 تومان</span>
+            </div>
+        </div>
+        
+        <div class="category">
+            <div class="category-title">دونرها</div>
+            <div class="item">
+                <span class="item-name">دونر کباب مخصوص</span>
+                <span class="item-price">159,000 تومان</span>
+            </div>
+            <div class="item">
+                <span class="item-name">دونر مرغ پستو</span>
+                <span class="item-price">149,000 تومان</span>
+            </div>
+        </div>
+        
+        <!-- سایر دسته‌بندی‌ها -->
+    </div>
+</body>
+</html>
